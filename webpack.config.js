@@ -6,12 +6,12 @@ module.exports = {
   entry: {
     app: './assets/js/script.js',
     events: "./assets/js/events.js",
-    schedule: "./assets/js/schedule",
+    schedule: "./assets/js/schedule.js",
     tickets: "./assets/js/tickets.js"
   },
   output: {
-    path: __dirname + '/dist',
-    filename: '[name].bundle.js'
+    path: path.join(__dirname, '/dist'),
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -22,7 +22,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               esModule: false,
-              name (file) {
+              name(file) {
                 return "[path][name].[ext]"
               },
               publicPath: function(url) {
